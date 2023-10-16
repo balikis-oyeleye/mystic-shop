@@ -1,0 +1,19 @@
+@mixin container() {
+  width: 100%;
+  margin: 0 auto;
+  @media (max-width: 475px) {
+    padding: 0 12px;
+  }
+
+  @each $name, $size in $breakpoints {
+    @media screen and (min-width: $size) {
+      max-width: $size;
+    }
+  }
+}
+
+@mixin breakpoint($size) {
+  @media (min-width: map-get($breakpoints, $size)) {
+    @content;
+  }
+}
