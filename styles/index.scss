@@ -1,13 +1,14 @@
-@import "./base/reset.scss";
 @import "./base/typography.scss";
 
-@import "./utils/placeholders.scss";
 @import "./utils/variables.scss";
+@import "./utils/placeholders.scss";
 @import "./utils/functions.scss";
 @import "./utils/mixins.scss";
 
-@import "./layouts/navigation.scss";
+@import "./layouts/navbar.scss";
+@import "./layouts/sidebar.scss";
 
 @import "./components/buttons.scss";
+@import "./components/badge.scss";
 
 @import "./page/home.scss";

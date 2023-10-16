@@ -1,7 +1,3 @@
-p {
-  @include font-size($p-font-sizes);
-}
-
 .home {
   @include container;
 }

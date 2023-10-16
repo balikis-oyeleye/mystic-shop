@@ -7,4 +7,34 @@
   width: 100%;
 }
 
-// @extend %cover
+%flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+%flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+%btn-hover {
+  display: inline-block;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 0;
+    bottom: 0;
+    height: 2px;
+    margin: -5px 0;
+    left: 0;
+    background-color: $black;
+    transition: all 0.2s ease-in 0s;
+  }
+  &:hover:after {
+    width: 100%;
+  }
+}
