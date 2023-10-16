@@ -1,11 +1,14 @@
+"use client";
+
 import React from "react";
 import Client from "./client";
 import Link from "next/link";
-import { useAppDispatch, useAppSelector } from "@/redux/hook";
-import { BiShoppingBag, BiMenu } from "react-icons/bi";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import { BiShoppingBag, BiMenu, BiX } from "react-icons/bi";
 import { BsGem } from "react-icons/bs";
 import Badge from "./badge";
-import { open } from "@/redux/features/sidebarSlice";
+import { open, close } from "@/redux/features/sidebarSlice";
+import { navbar } from "@/constants/navigations";
 
 const Navbar = () => {
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
@@ -14,16 +17,22 @@ const Navbar = () => {
   return (
     <Client>
       <header className="header">
-        <BiMenu className="menu" />
+        {isOpen ? (
+          <BiX className="menu" onClick={() => dispatch(close())} />
+        ) : (
+          <BiMenu className="menu" onClick={() => dispatch(open())} />
+        )}
+
         <Link href="/" className="header-brand">
-          <BsGem onClick={() => dispatch(open())} />
+          <BsGem />
           <span>Mysticshop</span>
         </Link>
         <nav className="header-nav">
-          <Link href="/">About</Link>
-          <Link href="/">Categories</Link>
-          <Link href="/">Contact</Link>
-          <Link href="/">Shop</Link>
+          {navbar.map((nav) => (
+            <Link href={nav.to} key={nav.link}>
+              {nav.link}
+            </Link>
+          ))}
         </nav>
         <div className="header-cta">
           <div className="cart">

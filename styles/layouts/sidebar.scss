@@ -2,7 +2,40 @@
   position: fixed;
   top: 81px;
   bottom: 0;
-  background: #000;
+  background: $white;
   width: 100vw;
   color: #fff;
+  transition: all 0.5s ease-in-out;
+  padding: 3rem 3.6rem;
+
+  @include breakpoint("md") {
+    display: none;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+
+    a {
+      border-bottom: 2px solid $black;
+      padding-bottom: 0.5rem;
+      width: 100%;
+      text-align: center;
+      color: $black;
+      font-weight: 500;
+      font-family: $playfair;
+    }
+  }
+}
+
+.active {
+  left: 0;
+}
+
+.inactive {
+  left: -100%;
 }
