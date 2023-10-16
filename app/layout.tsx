@@ -1,7 +1,9 @@
 import Navbar from "@/components/general/navbar";
+import Sidebar from "@/components/general/sidebar";
 import "@/styles/base/reset.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { Providers } from "@/redux/provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,8 +19,13 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Navbar />
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        <Providers>
+          <Navbar />
+          <Sidebar />
+          {children}
+        </Providers>
+      </body>
     </html>
   );
 }
