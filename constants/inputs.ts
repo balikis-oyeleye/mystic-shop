@@ -3,3 +3,8 @@ export const registerInputs = [
   { placeholder: "Email", name: "email" },
   { placeholder: "Password", name: "password" },
 ];
+
+export const loginInputs = [
+  { placeholder: "Email", name: "email" },
+  { placeholder: "Password", name: "password" },
+];
