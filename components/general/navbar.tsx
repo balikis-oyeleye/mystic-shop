@@ -9,10 +9,12 @@ import { BsGem } from "react-icons/bs";
 import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
 import { navbar } from "@/constants/navigations";
+import { usePathname } from "next/navigation";
 
 const Navbar = () => {
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
   const dispatch = useAppDispatch();
+  const pathname = usePathname();
 
   return (
     <Client>
@@ -29,7 +31,11 @@ const Navbar = () => {
         </Link>
         <nav className="header-nav">
           {navbar.map((nav) => (
-            <Link href={nav.to} key={nav.link}>
+            <Link
+              href={nav.to}
+              key={nav.link}
+              className={pathname === nav.to ? "nav-active" : ""}
+            >
               {nav.link}
             </Link>
           ))}

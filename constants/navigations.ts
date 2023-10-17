@@ -1,15 +1,17 @@
 export const navbar = [
-  { to: "/", link: "About" },
-  { to: "/", link: "Categories" },
-  { to: "/", link: "Contact" },
-  { to: "/", link: "Shop" },
+  { to: "/", link: "Home" },
+  { to: "/about", link: "About" },
+  { to: "/categories", link: "Categories" },
+  { to: "/contact", link: "Contact" },
+  { to: "/faqs", link: "Faqs" },
 ];
 
 export const sidebar = [
-  { to: "/", link: "About" },
-  { to: "/", link: "Categories" },
-  { to: "/", link: "Contact" },
-  { to: "/", link: "Shop" },
-  { to: "/", link: "Register" },
-  { to: "/", link: "Log in" },
+  { to: "/", link: "Home" },
+  { to: "/about", link: "About" },
+  { to: "/categories", link: "Categories" },
+  { to: "/contact", link: "Contact" },
+  { to: "/faqs", link: "Faqs" },
+  { to: "/register", link: "Register" },
+  { to: "/login", link: "Log in" },
 ];

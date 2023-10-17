@@ -19,7 +19,7 @@
   justify-content: center;
 }
 
-%btn-hover {
+%nav-hover {
   display: inline-block;
   position: relative;
   &:after {
@@ -36,5 +36,22 @@
   }
   &:hover:after {
     width: 100%;
+  }
+}
+
+%nav-active {
+  display: inline-block;
+  position: relative;
+  &:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 2px;
+    margin: -5px 0;
+    left: 0;
+    background-color: $black;
+    transition: all 0.2s ease-in 0s;
   }
 }

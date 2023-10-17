@@ -2,11 +2,15 @@
   @extend %flex-between;
   background: $white;
   width: 100vw;
-  padding: 1.6rem 3.2rem;
+  padding: 1.6rem 1.2rem;
   color: $black;
   box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.1);
   -webkit-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0px 1px 3px 2px rgba(0, 0, 0, 0.1);
+
+  @include breakpoint("md") {
+    padding: 1.6rem 3.2rem;
+  }
 
   .menu {
     display: block;
@@ -36,7 +40,7 @@
     display: none;
 
     a {
-      @extend %btn-hover;
+      @extend %nav-hover;
       font-size: 1rem;
       font-family: $playfair;
       font-weight: 500;
@@ -44,6 +48,10 @@
 
     @include breakpoint("md") {
       display: flex;
+    }
+
+    .nav-active {
+      @extend %nav-active;
     }
   }
 
@@ -63,7 +71,7 @@
     }
 
     .register {
-      @extend %btn-hover;
+      @extend %nav-hover;
     }
 
     .login {
