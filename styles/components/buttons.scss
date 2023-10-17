@@ -1,0 +1,19 @@
+.btn-primary {
+  @extend %nav-hover;
+  font-family: $playfair;
+  font-weight: 500;
+}
+
+.btn-secondary {
+  border: 1px solid $black;
+  padding: 0.5rem 1rem;
+  border-radius: 2px;
+  font-family: $playfair;
+  font-weight: 500;
+
+  &:hover {
+    background: $black;
+    color: $white;
+    transition: all 0.5s ease-in-out;
+  }
+}

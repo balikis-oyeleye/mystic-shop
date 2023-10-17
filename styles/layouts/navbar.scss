@@ -70,24 +70,8 @@
       }
     }
 
-    .register {
-      @extend %nav-hover;
-    }
-
-    .login {
-      border: 1px solid $black;
-      padding: 0.5rem 1rem;
-      border-radius: 2px;
-
-      &:hover {
-        background: $black;
-        color: $white;
-        transition: all 0.5s ease-in-out;
-      }
-    }
-
-    .register,
-    .login {
+    .btn-primary,
+    .btn-secondary {
       display: none;
 
       @include breakpoint("md") {

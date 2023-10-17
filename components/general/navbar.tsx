@@ -45,10 +45,10 @@ const Navbar = () => {
             <BiShoppingBag />
             <Badge text={99} />
           </div>
-          <Link href="/" className="register">
+          <Link href="/register" className="btn-primary">
             Register
           </Link>
-          <Link href="/" className="login">
+          <Link href="/login" className="btn-secondary">
             Log in
           </Link>
         </div>

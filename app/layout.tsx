@@ -4,6 +4,7 @@ import "@/styles/base/reset.scss";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/redux/provider";
+import Footer from "@/components/general/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: ChildrenTypes) {
           <Navbar />
           <Sidebar />
           {children}
+          <Footer />
         </Providers>
       </body>
     </html>
