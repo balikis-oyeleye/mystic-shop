@@ -1,0 +1,39 @@
+.register {
+  @extend %flex-center;
+  padding: 0 1.6rem;
+  flex-direction: column;
+
+  @include breakpoint("") {
+    display: block;
+  }
+
+  h1 {
+    margin: 45px 0;
+    font-size: 1.4rem;
+    font-family: $playfair;
+
+    @include breakpoint("xs") {
+      font-size: 3rem;
+      margin: 80px 0;
+    }
+  }
+  form {
+    @extend %flex-center;
+    flex-direction: column;
+    gap: 1.2rem;
+    max-width: 500px;
+    width: 100%;
+    padding: 0 1.6rem;
+
+    .btn-main {
+      width: 100%;
+    }
+
+    .btn-primary {
+      margin-left: 10px;
+    }
+    p {
+      font-size: 0.8rem;
+    }
+  }
+}
