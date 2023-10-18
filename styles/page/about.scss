@@ -1,0 +1,9 @@
+.about {
+  @extend %container;
+
+  &-header {
+    position: relative;
+    height: 400px;
+    width: 100%;
+  }
+}
