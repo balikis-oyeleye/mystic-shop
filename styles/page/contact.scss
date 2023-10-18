@@ -1,0 +1,38 @@
+.contact {
+  @extend %container;
+  padding: 1.6rem;
+
+  @include breakpoint("md") {
+    padding: 1.6rem 3.2rem;
+  }
+
+  h1 {
+    @extend %heading;
+  }
+
+  > p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  &-body {
+    @extend %flex-center;
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+
+      textarea {
+        outline: 1px solid rgba(0, 0, 0, 0.3);
+        padding: 11px 20px 12px;
+        min-height: 180px;
+        max-height: 180px;
+
+        &:focus {
+          outline: 1px solid $black;
+        }
+      }
+    }
+  }
+}
