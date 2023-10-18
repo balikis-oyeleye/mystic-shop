@@ -1,0 +1,36 @@
+.faqs {
+  @extend %container;
+  padding: 1.6rem;
+
+  @include breakpoint("md") {
+    padding: 1.6rem 3.2rem;
+  }
+
+  h1 {
+    @extend %heading;
+  }
+  .szh-accordion {
+    max-width: 700px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .szh-accordion__item {
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+
+    h3 {
+      font-weight: 600;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      padding-bottom: 0.75rem;
+
+      button {
+        text-align: start;
+      }
+    }
+
+    .szh-accordion__item-panel {
+      padding-top: 0.75rem;
+    }
+  }
+}
