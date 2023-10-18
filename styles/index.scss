@@ -1,9 +1,9 @@
 @import "./base/typography.scss";
 
 @import "./utils/variables.scss";
-@import "./utils/placeholders.scss";
 @import "./utils/functions.scss";
 @import "./utils/mixins.scss";
+@import "./utils/placeholders.scss";
 
 @import "./layouts/navbar.scss";
 @import "./layouts/sidebar.scss";
@@ -16,3 +16,4 @@
 @import "./page/home.scss";
 @import "./page/register.scss";
 @import "./page/login.scss";
+@import "./page/about.scss";

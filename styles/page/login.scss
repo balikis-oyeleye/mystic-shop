@@ -3,10 +3,6 @@
   padding: 0 1.6rem;
   flex-direction: column;
 
-  @include breakpoint("") {
-    display: block;
-  }
-
   h1 {
     margin: 45px 0;
     font-size: 1.4rem;

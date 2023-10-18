@@ -1,6 +1,5 @@
 "use client";
 
-import React from "react";
 import Client from "./client";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
@@ -19,38 +18,40 @@ const Navbar = () => {
   return (
     <Client>
       <header className="header">
-        {isOpen ? (
-          <BiX className="menu" onClick={() => dispatch(close())} />
-        ) : (
-          <BiMenu className="menu" onClick={() => dispatch(open())} />
-        )}
+        <div>
+          {isOpen ? (
+            <BiX className="menu" onClick={() => dispatch(close())} />
+          ) : (
+            <BiMenu className="menu" onClick={() => dispatch(open())} />
+          )}
 
-        <Link href="/" className="header-brand">
-          <BsGem />
-          <span>Mysticshop</span>
-        </Link>
-        <nav className="header-nav">
-          {navbar.map((nav) => (
-            <Link
-              href={nav.to}
-              key={nav.link}
-              className={pathname === nav.to ? "nav-active" : ""}
-            >
-              {nav.link}
+          <Link href="/" className="header-brand">
+            <BsGem />
+            <span>Mysticshop</span>
+          </Link>
+          <nav className="header-nav">
+            {navbar.map((nav) => (
+              <Link
+                href={nav.to}
+                key={nav.link}
+                className={pathname === nav.to ? "nav-active" : ""}
+              >
+                {nav.link}
+              </Link>
+            ))}
+          </nav>
+          <div className="header-cta">
+            <div className="cart">
+              <BiShoppingBag />
+              <Badge text={99} />
+            </div>
+            <Link href="/register" className="btn-primary">
+              Register
             </Link>
-          ))}
-        </nav>
-        <div className="header-cta">
-          <div className="cart">
-            <BiShoppingBag />
-            <Badge text={99} />
+            <Link href="/login" className="btn-secondary">
+              Log in
+            </Link>
           </div>
-          <Link href="/register" className="btn-primary">
-            Register
-          </Link>
-          <Link href="/login" className="btn-secondary">
-            Log in
-          </Link>
         </div>
       </header>
     </Client>
