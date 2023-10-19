@@ -16,18 +16,50 @@
   }
 
   &-body {
-    @extend %flex-center;
+    @extend %flex-between;
+    align-items: flex-start;
+    max-width: 800px;
+    margin: 2rem auto 0;
+    flex-direction: column-reverse;
+    row-gap: 2rem;
+    column-gap: 6rem;
+
+    @include breakpoint("md") {
+      flex-direction: row;
+    }
+
+    > div {
+      @include breakpoint("md") {
+        width: 500px;
+      }
+
+      div {
+        margin-bottom: 1.2rem;
+      }
+
+      h4 {
+        font-weight: 600;
+        font-family: playfair;
+        font-size: 1.4rem;
+        margin-bottom: 0.5rem;
+      }
+    }
 
     form {
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      width: 100%;
+
+      input {
+        width: 100%;
+      }
 
       textarea {
         outline: 1px solid rgba(0, 0, 0, 0.3);
         padding: 11px 20px 12px;
-        min-height: 180px;
-        max-height: 180px;
+        min-height: 120px;
+        max-height: 120px;
 
         &:focus {
           outline: 1px solid $black;
