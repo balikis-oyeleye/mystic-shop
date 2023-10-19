@@ -9,11 +9,20 @@ import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
 import { navbar } from "@/constants/navigations";
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
+import { useWindowSize } from "@uidotdev/usehooks";
 
 const Navbar = () => {
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
+  const size = useWindowSize();
+
+  useEffect(() => {
+    if (size.width! > 769) {
+      dispatch(close());
+    }
+  }, [size]);
 
   return (
     <Client>
