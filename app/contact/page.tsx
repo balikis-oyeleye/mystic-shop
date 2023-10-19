@@ -2,15 +2,21 @@
 
 import Input from "@/components/general/input";
 import { contactDetails } from "@/constants/contact";
-import { aboutInputs } from "@/constants/inputs";
+import { ContactSchemaType, contactSchema } from "@/constants/contactSchema";
+import { contactInputs } from "@/constants/inputs";
+import { zodResolver } from "@hookform/resolvers/zod";
 import React from "react";
 import { useForm } from "react-hook-form";
 
 const Contact = () => {
   const {
     register,
+    handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<ContactSchemaType>({ resolver: zodResolver(contactSchema) });
+
+  const onSubmit = () => alert("Port");
+  console.log(errors);
 
   return (
     <main className="contact">
@@ -30,16 +36,22 @@ const Contact = () => {
           ))}
         </div>
         <form>
-          {aboutInputs.map((input) => (
+          {contactInputs.map((input) => (
             <Input
               name={input.name}
               placeholder={input.placeholder}
               errors={errors}
               register={register}
+              key={input.name}
             />
           ))}
-          <textarea placeholder="Your Message..." />
-          <button className="btn-main">Send</button>
+          <textarea placeholder="Your Message..." {...register("message")} />
+          {errors.message && (
+            <small className="error">{errors.message.message}</small>
+          )}
+          <button className="btn-main" onClick={handleSubmit(onSubmit)}>
+            Send
+          </button>
         </form>
       </section>
     </main>

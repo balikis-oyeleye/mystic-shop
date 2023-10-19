@@ -8,7 +8,8 @@ export const loginInputs = [
   { placeholder: "Email", name: "email" },
   { placeholder: "Password", name: "password" },
 ];
-export const aboutInputs = [
+
+export const contactInputs = [
   { placeholder: "Your email address", name: "email" },
   { placeholder: "Your name", name: "name" },
 ];
