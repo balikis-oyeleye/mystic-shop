@@ -3,8 +3,12 @@
 
   &-header {
     position: relative;
-    height: 400px;
+    height: 200px;
     width: 100%;
+
+    @include breakpoint("sm") {
+      height: 600px;
+    }
   }
 
   &-body {
