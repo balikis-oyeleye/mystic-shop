@@ -3,7 +3,7 @@ import { BsGithub, BsLinkedin, BsTwitter } from "react-icons/bs";
 export const navbar = [
   { to: "/", link: "Home" },
   { to: "/about", link: "About" },
-  { to: "/categories", link: "Categories" },
+  { to: "/shop", link: "Shop" },
   { to: "/contact", link: "Contact" },
   { to: "/faqs", link: "Faqs" },
 ];
@@ -11,7 +11,7 @@ export const navbar = [
 export const sidebar = [
   { to: "/", link: "Home" },
   { to: "/about", link: "About" },
-  { to: "/categories", link: "Categories" },
+  { to: "/shop", link: "Shop" },
   { to: "/contact", link: "Contact" },
   { to: "/faqs", link: "Faqs" },
   { to: "/register", link: "Register" },
@@ -25,9 +25,9 @@ export const socialLinks = [
 ];
 
 export const categories = [
-  { to: "/categories/furniture", category: "furniture" },
-  { to: "/categories/beddings", category: "beddings" },
-  { to: "/categories/accessories", category: "accessories" },
-  { to: "/categories/clocks", category: "clocks" },
-  { to: "/categories/lightings", category: "lightings" },
+  { to: "/shop/furniture", category: "furniture" },
+  { to: "/shop/beddings", category: "beddings" },
+  { to: "/shop/accessories", category: "accessories" },
+  { to: "/shop/clocks", category: "clocks" },
+  { to: "/shop/lightings", category: "lightings" },
 ];
