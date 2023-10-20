@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main className="home">
       <div className="hero">
-        <Image src={"/hero.jpg"} fill alt="hero" />
+        <Image src={"/hero.jpg"} fill alt="hero" priority />
       </div>
       <section>
         <h1>Our Products</h1>
