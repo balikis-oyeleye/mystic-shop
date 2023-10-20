@@ -1,14 +1,16 @@
 "use client";
 
 import { sidebar } from "@/constants/navigations";
-import { useAppSelector } from "@/redux/hooks";
+import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
+import { close } from "@/redux/features/sidebarSlice";
 
 const Sidebar = () => {
   const pathname = usePathname();
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
+  const dispatch = useAppDispatch();
 
   useEffect(() => {
     if (isOpen === true) {
@@ -26,6 +28,7 @@ const Sidebar = () => {
             href={nav.to}
             key={nav.link}
             className={pathname === nav.to ? "active" : ""}
+            onClick={() => dispatch(close())}
           >
             {nav.link}
           </Link>

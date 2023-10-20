@@ -45,6 +45,10 @@
     svg {
       font-size: 1.5rem;
       display: none;
+
+      @include breakpoint("md") {
+        display: block;
+      }
     }
   }
 

@@ -1,4 +1,7 @@
+import Products from "@/components/shop/products";
+import { products } from "@/constants/random";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
   return (
@@ -8,7 +11,12 @@ export default function Home() {
       </div>
       <section>
         <h1>Our Products</h1>
-        <div></div>
+        <Products products={products.slice(0, 8)} />
+        <div className="see-more">
+          <Link href="/shop" className="btn-secondary">
+            See More
+          </Link>
+        </div>
       </section>
     </main>
   );
