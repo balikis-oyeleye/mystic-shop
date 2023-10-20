@@ -80,6 +80,7 @@
 
     svg {
       font-size: 1.3rem;
+      cursor: pointer;
 
       @include breakpoint("md") {
         font-size: 1.4rem;

@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/redux/provider";
 import Footer from "@/components/general/footer";
+import Search from "@/components/general/search";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({ children }: ChildrenTypes) {
         <Providers>
           <Navbar />
           <Sidebar />
+          <Search />
           {children}
           <Footer />
         </Providers>

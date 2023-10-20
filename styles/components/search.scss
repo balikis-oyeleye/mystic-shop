@@ -1,0 +1,54 @@
+.search-modal {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: $fade;
+  width: 100%;
+  z-index: 10;
+
+  > div {
+    background: #fff;
+    height: 150px;
+    padding-bottom: 1rem;
+
+    > div {
+      @extend %container;
+      @extend %flex-center;
+      height: 100%;
+      padding: 0 4rem;
+      position: relative;
+
+      .close {
+        font-size: 1.8rem;
+        position: absolute;
+        top: 0.2rem;
+        right: 4rem;
+        cursor: pointer;
+      }
+
+      form {
+        width: 100%;
+        @extend %flex-center;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        padding-bottom: 0.5rem;
+
+        input {
+          width: 100%;
+          outline: none;
+          font-size: 1.2rem;
+        }
+
+        svg {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+}
+.active-sm {
+  display: block;
+}
+
+.inactive-sm {
+  display: none;
+}
