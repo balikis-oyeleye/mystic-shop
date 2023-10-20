@@ -60,14 +60,14 @@ const Navbar = () => {
               <BsPerson className="auth" />
             </Link>
             <div className="cart">
-              <Link href="/wishlist">
+              <Link href="/wishlist" onClick={() => dispatch(close())}>
                 <CiHeart />
               </Link>
               <Badge text={99} />
             </div>
             <div className="cart">
               <Link href="/cart">
-                <PiShoppingBagThin />
+                <PiShoppingBagThin onClick={() => dispatch(close())} />
               </Link>
               <Badge text={99} />
             </div>
