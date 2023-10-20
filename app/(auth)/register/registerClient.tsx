@@ -19,8 +19,6 @@ const RegisterClient = () => {
   const onSubmit: SubmitHandler<RegisterSchemaType> = (data) =>
     console.log(data);
 
-  console.log(errors);
-
   return (
     <form>
       {registerInputs.map((input) => (

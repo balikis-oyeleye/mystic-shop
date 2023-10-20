@@ -18,8 +18,6 @@ const LoginClient = () => {
 
   const onSubmit: SubmitHandler<LoginSchemaType> = (data) => console.log(data);
 
-  console.log(errors);
-
   return (
     <form>
       {loginInputs.map((input) => (

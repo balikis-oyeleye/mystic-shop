@@ -16,7 +16,6 @@ const Contact = () => {
   } = useForm<ContactSchemaType>({ resolver: zodResolver(contactSchema) });
 
   const onSubmit = () => alert("Port");
-  console.log(errors);
 
   return (
     <main className="contact">
