@@ -9,6 +9,7 @@ import { PiShoppingBagThin } from "react-icons/pi";
 import { CiSearch, CiHeart } from "react-icons/ci";
 import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
+import { open as openSm } from "@/redux/features/searchSlice";
 import { navbar } from "@/constants/navigations";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -36,7 +37,7 @@ const Navbar = () => {
             ) : (
               <BiMenu onClick={() => dispatch(open())} />
             )}
-            <CiSearch className="search" />
+            <CiSearch className="search" onClick={() => dispatch(openSm())} />
           </div>
 
           <Link href="/" className="header-brand">
@@ -55,7 +56,7 @@ const Navbar = () => {
             ))}
           </nav>
           <div className="header-cta">
-            <CiSearch className="search" />
+            <CiSearch className="search" onClick={() => dispatch(openSm())} />
             <Link href="/login">
               <BsPerson className="auth" />
             </Link>
