@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import sidebarReducer from "./features/sidebarSlice";
 import searchReducer from "./features/searchSlice";
+import cartModalReducer from "./features/cartModalSlice";
 
 export const store = configureStore({
-  reducer: { sidebarReducer, searchReducer },
+  reducer: { sidebarReducer, searchReducer, cartModalReducer },
   devTools: process.env.NODE_ENV !== "production",
 });
 

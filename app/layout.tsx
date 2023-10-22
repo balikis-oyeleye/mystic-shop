@@ -6,6 +6,7 @@ import { Inter } from "next/font/google";
 import { Providers } from "@/redux/provider";
 import Footer from "@/components/general/footer";
 import Search from "@/components/general/search";
+import Cart from "@/components/shop/cart";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +23,7 @@ export default function RootLayout({ children }: ChildrenTypes) {
           <Navbar />
           <Sidebar />
           <Search />
+          <Cart />
           {children}
           <Footer />
         </Providers>

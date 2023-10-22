@@ -10,6 +10,7 @@ import { CiSearch, CiHeart } from "react-icons/ci";
 import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
 import { open as openSm } from "@/redux/features/searchSlice";
+import { open as openCm } from "@/redux/features/cartModalSlice";
 import { navbar } from "@/constants/navigations";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
@@ -67,9 +68,13 @@ const Navbar = () => {
               <Badge text={99} />
             </div>
             <div className="cart">
-              <Link href="/cart">
-                <PiShoppingBagThin onClick={() => dispatch(close())} />
-              </Link>
+              <PiShoppingBagThin
+                onClick={() => {
+                  dispatch(close());
+                  dispatch(openCm());
+                }}
+              />
+
               <Badge text={99} />
             </div>
           </div>

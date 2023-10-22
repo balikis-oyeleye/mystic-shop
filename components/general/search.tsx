@@ -18,8 +18,6 @@ const Search = () => {
     }
   }, [isOpen]);
 
-  console.log(isOpen);
-
   return (
     <div className={`search-modal ${isOpen ? "active-sm" : "inactive-sm"}`}>
       <div>
