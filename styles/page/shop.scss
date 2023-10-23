@@ -9,4 +9,19 @@
   h1 {
     @extend %heading;
   }
+
+  section {
+    .filter {
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+        margin-top: 0.75rem;
+
+        @include breakpoint("xs") {
+          flex-direction: row;
+        }
+      }
+    }
+  }
 }

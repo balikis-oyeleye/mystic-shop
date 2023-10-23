@@ -20,16 +20,6 @@
       margin-bottom: 1.2rem;
       position: relative;
 
-      .wishlist {
-        position: absolute;
-        right: 10px;
-        top: 10px;
-        font-size: 1.5rem;
-        cursor: pointer;
-        z-index: 9;
-        color: $redwood;
-      }
-
       div {
         position: relative;
         height: 10rem;
@@ -52,6 +42,13 @@
       width: 100%;
       text-align: center;
       margin-bottom: 0.5rem;
+      height: 3rem;
+      font-size: 0.75rem;
+
+      @include breakpoint("md") {
+        height: 2rem;
+        font-size: 1rem;
+      }
     }
 
     &-price {
