@@ -6,9 +6,7 @@ const Wishlist = () => {
   return (
     <main className="wishlist">
       <h1>Wishlist</h1>
-      <section>
-        <Products products={products} />
-      </section>
+      <section>{/* <Products products={products} /> */}</section>
     </main>
   );
 };
