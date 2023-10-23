@@ -3,10 +3,15 @@ import Product from "./product";
 
 interface ProductsProps {
   products: {
-    id: number;
+    id: string;
     name: string;
+    category: string;
+    description: string;
     price: number;
-    image_link: string;
+    quantity: number;
+    status: string;
+    imageUrl: string;
+    sellerId: string;
   }[];
 }
 

@@ -1,9 +1,15 @@
-export const homeCategories = [
-  { name: "Furniture", src: "/sofa.png", color: "#f0d1ff" },
-  { name: "Clock", src: "/clock.png", color: "#ffd9ff" },
-  { name: "Lighting", src: "/light.png", color: "#bfd9d8" },
-  { name: "Beddings", src: "/bed.png", color: "#d2ffd4" },
-  { name: "Accessories", src: "/plant.png", color: "#fff6c1" },
+export const categories = [
+  { value: "furniture", label: "Furniture" },
+  { value: "clock", label: "Clock" },
+  { value: "clock", label: "Clock" },
+  { value: "lighting", label: "Lighting" },
+  { value: "beddings", label: "Beddings" },
+  { value: "accessories", label: "Accessories" },
+];
+
+export const price = [
+  { value: "desc", label: "Highest to lowest price" },
+  { value: "asc", label: "lowest to highest price" },
 ];
 
 export const products = [

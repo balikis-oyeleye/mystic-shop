@@ -4,10 +4,15 @@ import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 interface ProductProps {
   product: {
-    id: number;
+    id: string;
     name: string;
+    category: string;
+    description: string;
     price: number;
-    image_link: string;
+    quantity: number;
+    status: string;
+    imageUrl: string;
+    sellerId: string;
   };
 }
 
@@ -15,14 +20,9 @@ const Product = ({ product }: ProductProps) => {
   return (
     <div className="product">
       <div className="product-img">
-        {true ? (
-          <AiFillHeart className="wishlist" />
-        ) : (
-          <AiOutlineHeart className="wishlist" />
-        )}
         <Link href={`/shop/${product.id}`}>
           <div>
-            <Image src={product.image_link} fill alt={product.name} />
+            <Image src={product.imageUrl} fill alt={product.name} />
           </div>
         </Link>
       </div>
