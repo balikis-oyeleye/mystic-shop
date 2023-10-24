@@ -7,6 +7,7 @@ import { Providers } from "@/redux/provider";
 import Footer from "@/components/general/footer";
 import Search from "@/components/general/search";
 import Cart from "@/components/shop/cart";
+import ContactModal from "@/components/modal/contactModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -24,6 +25,7 @@ export default function RootLayout({ children }: ChildrenTypes) {
           <Sidebar />
           <Search />
           <Cart />
+          <ContactModal />
           {children}
           <Footer />
         </Providers>

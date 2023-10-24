@@ -65,6 +65,10 @@
           outline: 1px solid $black;
         }
       }
+
+      .btn-main {
+        @extend %flex-center;
+      }
     }
   }
 }

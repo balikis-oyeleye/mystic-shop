@@ -6,15 +6,35 @@ import { ContactSchemaType, contactSchema } from "@/constants/contactSchema";
 import { contactInputs } from "@/constants/inputs";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import {
+  open,
+  startLoading,
+  stopLoading,
+} from "@/redux/features/contactModalSlice";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import Image from "next/image";
 
 const Contact = () => {
+  const dispatch = useAppDispatch();
+  const { isLoading } = useAppSelector((state) => state.contactModalSlice);
+
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<ContactSchemaType>({ resolver: zodResolver(contactSchema) });
 
-  const onSubmit = () => alert("Port");
+  const onSubmit = () => {
+    dispatch(startLoading());
+
+    setTimeout(() => {
+      dispatch(stopLoading());
+
+      dispatch(open());
+      reset();
+    }, 1500);
+  };
 
   return (
     <main className="contact">
@@ -47,8 +67,16 @@ const Contact = () => {
           {errors.message && (
             <small className="error">{errors.message.message}</small>
           )}
-          <button className="btn-main" onClick={handleSubmit(onSubmit)}>
-            Send
+          <button
+            className="btn-main"
+            disabled={isLoading}
+            onClick={handleSubmit(onSubmit)}
+          >
+            {isLoading ? (
+              <Image src="/loader.gif" width={30} height={30} alt="loader" />
+            ) : (
+              <span>Send</span>
+            )}
           </button>
         </form>
       </section>

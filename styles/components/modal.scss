@@ -1,0 +1,66 @@
+.modal {
+  @extend %flex-center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: $fade;
+
+  > div {
+    max-height: 24rem;
+    width: 17rem;
+    background: $white;
+    border-radius: 5px;
+
+    @include breakpoint("xs") {
+      max-height: 30rem;
+      width: 28rem;
+    }
+
+    @include breakpoint("lg") {
+      max-height: 30rem;
+      width: 30rem;
+    }
+  }
+}
+
+.contact-modal {
+  padding: 2rem;
+  transition: transform ease-in-out 0.2s;
+
+  @include breakpoint("md") {
+    padding: 2rem;
+  }
+
+  .head {
+    border-bottom: 1px solid $black;
+    text-align: center;
+    padding-bottom: 1.5rem;
+    font-size: 0.75rem;
+
+    @include breakpoint("sm") {
+      font-size: 1rem;
+    }
+  }
+
+  .body {
+    padding: 2rem 0;
+    @extend %flex-center;
+
+    svg {
+      font-size: 5rem;
+    }
+  }
+
+  .btn {
+    width: 100%;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.inactive-c {
+  display: none;
+}
