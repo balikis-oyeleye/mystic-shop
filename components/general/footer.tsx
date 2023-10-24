@@ -2,7 +2,6 @@
 
 import { categories, sidebar, socialLinks } from "@/constants/navigations";
 import Link from "next/link";
-import React from "react";
 import { BsGem } from "react-icons/bs";
 
 const Footer = () => {

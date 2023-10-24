@@ -5,7 +5,6 @@ import { contactDetails } from "@/constants/contact";
 import { ContactSchemaType, contactSchema } from "@/constants/contactSchema";
 import { contactInputs } from "@/constants/inputs";
 import { zodResolver } from "@hookform/resolvers/zod";
-import React from "react";
 import { useForm } from "react-hook-form";
 
 const Contact = () => {

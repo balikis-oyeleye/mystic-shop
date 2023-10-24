@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { BsX } from "react-icons/bs";
 import CartItem from "./cartItem";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";

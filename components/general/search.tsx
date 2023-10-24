@@ -3,7 +3,7 @@
 import { useAppSelector, useAppDispatch } from "@/redux/hooks";
 import { BsX } from "react-icons/bs";
 import { CiSearch } from "react-icons/ci";
-import { open, close } from "@/redux/features/searchSlice";
+import { close } from "@/redux/features/searchSlice";
 import { useEffect } from "react";
 
 const Search = () => {
