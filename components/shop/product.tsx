@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,6 +18,8 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
+  const addToCart = () => console.log("add to cart");
+
   return (
     <div className="product">
       <div className="product-img">
@@ -32,7 +36,9 @@ const Product = ({ product }: ProductProps) => {
         <span>${product.price}</span>
       </div>
       {true ? (
-        <button className="btn-secondary">Add to Cart</button>
+        <button className="btn-secondary" onClick={addToCart}>
+          Add to Cart
+        </button>
       ) : (
         <button className="btn-secondary">Remove</button>
       )}

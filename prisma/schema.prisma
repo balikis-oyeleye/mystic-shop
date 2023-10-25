@@ -11,6 +11,20 @@ datasource db {
 }
 
 // Define the Product model
+
+model Customer {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String?  @unique
+  name       String?
+  password   String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  wishlistId String[] @db.ObjectId
+
+  Order Order[]
+  cart  Cart[]
+}
+
 model Product {
   id          String @id @default(auto()) @map("_id") @db.ObjectId
   name        String
@@ -22,44 +36,27 @@ model Product {
   imageUrl    String
   sellerId    String
 
-  order    Order[]
-  wishlist Wishlist[]
-  Cart     Cart[]
+  Order Order[]
+  Cart  Cart[]
 }
 
 // Define the Order model
 model Order {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  id          String    @id @default(auto()) @map("_id") @db.ObjectId
   orderDate   DateTime
   totalAmount Float
-  status      String
   address     String
   sellerId    String
-  productId   String?  @db.ObjectId
-  Product     Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  productId   String?   @db.ObjectId
+  Product     Product?  @relation(fields: [productId], references: [id], onDelete: Cascade)
+  Customer    Customer? @relation(fields: [customerId], references: [id])
+  customerId  String?   @db.ObjectId
 }
 
 model Cart {
-  id         String  @id @default(auto()) @map("_id") @db.ObjectId
-  productId  String  @db.ObjectId
-  Product    Product @relation(fields: [productId], references: [id], onDelete: Cascade)
-  customerId String
+  id         String @id @default(auto()) @map("_id") @db.ObjectId
+  customerId String @db.ObjectId
 
-  @@index([productId])
-}
-
-// Define the Transaction model
-model Transaction {
-  id       String   @id @default(auto()) @map("_id") @db.ObjectId
-  amount   Float
-  date     DateTime
-  sellerId String
-}
-
-model Wishlist {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  name       String
-  customerId String
-  productId  String?  @db.ObjectId
-  Product    Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+  product  Product  @relation(fields: [customerId], references: [id], onDelete: Cascade)
+  customer Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
 }
