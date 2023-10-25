@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { BiMenu, BiX } from "react-icons/bi";
 import { BsGem, BsPerson } from "react-icons/bs";
 import { PiShoppingBagThin } from "react-icons/pi";
-import { CiSearch, CiHeart } from "react-icons/ci";
+import { CiHeart } from "react-icons/ci";
 import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
 import { open as openSm } from "@/redux/features/searchSlice";
@@ -38,9 +38,7 @@ const Navbar = () => {
             ) : (
               <BiMenu onClick={() => dispatch(open())} />
             )}
-            <CiSearch className="search" onClick={() => dispatch(openSm())} />
           </div>
-
           <Link href="/" className="header-brand">
             <BsGem />
             <span>Mysticshop</span>
@@ -57,7 +55,6 @@ const Navbar = () => {
             ))}
           </nav>
           <div className="header-cta">
-            <CiSearch className="search" onClick={() => dispatch(openSm())} />
             <Link href="/login">
               <BsPerson className="auth" />
             </Link>

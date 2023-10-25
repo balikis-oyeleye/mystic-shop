@@ -5,7 +5,6 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Providers } from "@/redux/provider";
 import Footer from "@/components/general/footer";
-import Search from "@/components/general/search";
 import Cart from "@/components/shop/cart";
 import ContactModal from "@/components/modal/contactModal";
 
@@ -23,7 +22,6 @@ export default function RootLayout({ children }: ChildrenTypes) {
         <Providers>
           <Navbar />
           <Sidebar />
-          <Search />
           <Cart />
           <ContactModal />
           {children}
