@@ -3,8 +3,8 @@ import Select from "@/components/general/select";
 import Products from "@/components/shop/products";
 import { categories, price } from "@/constants/random";
 
-const Shop = async () => {
-  const products = await getProducts();
+const Shop = async ({ searchParams }: any) => {
+  const products = await getProducts(searchParams.category, searchParams.price);
 
   return (
     <main className="shop">
@@ -15,12 +15,8 @@ const Shop = async () => {
             <div className="filter">
               <span>Filter by:</span>
               <div>
-                <Select
-                  defaultValue="categories"
-                  name="categories"
-                  options={categories}
-                />
-                <Select defaultValue="price" name="price" options={price} />
+                <Select name="category" options={categories} />
+                <Select name="price" options={price} />
               </div>
             </div>
             <Products products={products} />

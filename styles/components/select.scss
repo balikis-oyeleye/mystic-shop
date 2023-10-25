@@ -1,0 +1,49 @@
+.select {
+  position: relative;
+
+  &-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border: 1px solid $fade;
+    padding: 0.5rem 0.6rem;
+    border-radius: 8px;
+    width: 8rem;
+  }
+
+  &-options {
+    background: $white;
+    position: absolute;
+    top: 40px;
+
+    flex-direction: column;
+    text-align: start;
+    width: 100%;
+    padding: 1rem;
+    gap: 0.2rem;
+    z-index: 10;
+
+    button {
+      font-size: 0.9rem;
+      text-align: start;
+      padding: 0.2rem 0.4rem;
+
+      &:hover {
+        background: #ddd;
+      }
+    }
+  }
+}
+
+.active-sel {
+  display: flex;
+}
+
+.inactive-sel {
+  display: none;
+}
+
+.active-sb {
+  background: #ddd;
+}

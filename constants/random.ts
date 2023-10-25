@@ -1,7 +1,6 @@
 export const categories = [
   { value: "furniture", label: "Furniture" },
-  { value: "clock", label: "Clock" },
-  { value: "clock", label: "Clock" },
+  { value: "clocks", label: "Clock" },
   { value: "lighting", label: "Lighting" },
   { value: "beddings", label: "Beddings" },
   { value: "accessories", label: "Accessories" },
@@ -9,7 +8,7 @@ export const categories = [
 
 export const price = [
   { value: "desc", label: "Highest to lowest price" },
-  { value: "asc", label: "lowest to highest price" },
+  { value: "asc", label: "Lowest to highest price" },
 ];
 
 export const products = [
