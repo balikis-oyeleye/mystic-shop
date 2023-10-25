@@ -1,4 +1,4 @@
-import { getProduct } from "@/actions/getProduct";
+import { getProductById } from "@/actions/getProductById";
 import Image from "next/image";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsDash, BsPlus } from "react-icons/bs";
@@ -10,7 +10,7 @@ interface ProductProps {
 }
 
 const Product = async ({ params }: ProductProps) => {
-  const product: any = await getProduct(params.productId);
+  const product: any = await getProductById(params.productId);
   console.log(product);
 
   return (
