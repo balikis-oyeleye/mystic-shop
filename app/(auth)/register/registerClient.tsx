@@ -30,8 +30,11 @@ const RegisterClient = () => {
     axios
       .post("/api/register", data)
       .then((error) => {
-        toast.success("Successfully Registered");
-        console.log(error);
+        if (error.data.message) {
+          toast.success(error.data.message);
+        } else {
+          console.log(error);
+        }
       })
       .catch((error) => {
         toast.error("Something went wrong");
