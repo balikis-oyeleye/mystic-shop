@@ -24,14 +24,6 @@ const RegisterClient = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  useEffect(() => {
-    console.log("pmn");
-    axios
-      .post("/api/wishlist")
-      .then((response) => console.log(response))
-      .catch((response) => console.log(response, "oh no"));
-  }, []);
-
   const onSubmit: SubmitHandler<RegisterSchemaType> = (data) => {
     setIsLoading(true);
 
