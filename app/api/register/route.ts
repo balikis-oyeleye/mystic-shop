@@ -26,6 +26,7 @@ export async function POST(req: Request) {
           message: "An account already existed with the email!",
         });
       }
+      return NextResponse.json(e);
     }
     return NextResponse.json(e);
   }
