@@ -1,6 +1,6 @@
 import prisma from "@/lib/prismadb";
 
-export const getProducts = async (category: string, price: string) => {
+export const getProducts = async (category?: string, price?: string) => {
   try {
     let filter: any = {
       where: {
