@@ -4,10 +4,18 @@ import Input from "@/components/general/input";
 import { registerInputs } from "@/constants/inputs";
 import { RegisterSchemaType, registerSchema } from "@/constants/registerSchema";
 import { zodResolver } from "@hookform/resolvers/zod";
+import axios from "axios";
+import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const RegisterClient = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
   const {
     register,
     handleSubmit,
@@ -16,8 +24,18 @@ const RegisterClient = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  const onSubmit: SubmitHandler<RegisterSchemaType> = (data) =>
-    console.log(data);
+  const onSubmit: SubmitHandler<RegisterSchemaType> = (data) => {
+    setIsLoading(true);
+
+    axios
+      .post("/api/register", data)
+      .then(() => {
+        toast.success("Successfully Registered");
+        router.push("/login");
+      })
+      .catch((error) => toast.error("Something went wrong"))
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <form>
@@ -28,13 +46,22 @@ const RegisterClient = () => {
           register={register}
           errors={errors}
           placeholder={input.placeholder}
+          type={input.type}
         />
       ))}
       <p>
         Register for early sale access plus tailored new arrivals and discounts.
       </p>
-      <button className="btn-main" onClick={handleSubmit(onSubmit)}>
-        Register
+      <button
+        className="btn-main"
+        disabled={isLoading}
+        onClick={handleSubmit(onSubmit)}
+      >
+        {isLoading ? (
+          <Image src={"/loader.gif"} width={30} height={30} alt="register" />
+        ) : (
+          <span>Register</span>
+        )}
       </button>
       <p>
         Already have an account?

@@ -6,7 +6,6 @@ import Link from "next/link";
 export default async function Home() {
   const products = await getProducts();
 
-  console.log(products);
   return (
     <main className="home">
       <div className="hero">

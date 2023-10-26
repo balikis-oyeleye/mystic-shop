@@ -25,6 +25,6 @@ export const getProducts = async (category?: string, price?: string) => {
 
     return products;
   } catch (error: any) {
-    return [];
+    throw new Error(error);
   }
 };

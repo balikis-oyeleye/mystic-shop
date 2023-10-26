@@ -10,8 +10,7 @@ interface ProductProps {
 }
 
 const Product = async ({ params }: ProductProps) => {
-  const product: any = await getProductById(params.productId);
-  console.log(product);
+  const product = (await getProductById(params.productId)) as ProductType;
 
   return (
     <main className="product-id">

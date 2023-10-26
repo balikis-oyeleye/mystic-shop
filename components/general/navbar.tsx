@@ -4,7 +4,7 @@ import Client from "./client";
 import Link from "next/link";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { BiMenu, BiX } from "react-icons/bi";
-import { BsGem, BsPerson } from "react-icons/bs";
+import { BsGem, BsPerson, BsPersonCheck } from "react-icons/bs";
 import { PiShoppingBagThin } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 import Badge from "./badge";
@@ -15,7 +15,7 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-const Navbar = () => {
+const Navbar = ({ customer }: AuthenticatedType) => {
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
@@ -55,7 +55,11 @@ const Navbar = () => {
           </nav>
           <div className="header-cta">
             <Link href="/login">
-              <BsPerson className="auth" />
+              {customer ? (
+                <BsPersonCheck className="auth" />
+              ) : (
+                <BsPerson className="auth" />
+              )}
             </Link>
             <div className="cart">
               <Link href="/wishlist" onClick={() => dispatch(close())}>
@@ -70,7 +74,6 @@ const Navbar = () => {
                   dispatch(openCm());
                 }}
               />
-
               <Badge text={99} />
             </div>
           </div>

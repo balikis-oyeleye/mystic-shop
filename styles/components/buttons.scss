@@ -1,10 +1,12 @@
 .btn-primary {
+  @extend %flex-center;
   @extend %nav-hover;
   font-family: $playfair;
   font-weight: 500;
 }
 
 .btn-secondary {
+  @extend %flex-center;
   border: 1px solid $black;
   padding: 0.5rem 1rem;
   border-radius: 2px;
@@ -19,6 +21,7 @@
 }
 
 .btn-main {
+  @extend %flex-center;
   border: 1px solid $black;
   padding: 0.5rem 1rem;
   border-radius: 2px;

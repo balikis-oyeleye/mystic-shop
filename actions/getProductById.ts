@@ -10,6 +10,6 @@ export const getProductById = async (params: string) => {
 
     return products;
   } catch (error: any) {
-    return [];
+    throw new Error(error);
   }
 };

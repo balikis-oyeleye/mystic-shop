@@ -1,0 +1,13 @@
+.authenticated {
+  @extend %flex-center;
+  flex-direction: column;
+
+  p {
+    padding-bottom: 1rem;
+    text-align: center;
+  }
+
+  button {
+    padding-left: 0.4rem;
+  }
+}

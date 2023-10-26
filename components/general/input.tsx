@@ -3,13 +3,14 @@ interface InputProps {
   register: any;
   errors: any;
   placeholder: string;
+  type: string;
 }
 
-const Input = ({ name, register, errors, placeholder }: InputProps) => {
+const Input = ({ name, register, errors, placeholder, type }: InputProps) => {
   return (
     <>
       <input
-        type="text"
+        type={type}
         placeholder={placeholder}
         className="input"
         {...register(name)}
