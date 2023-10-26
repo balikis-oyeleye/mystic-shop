@@ -61,6 +61,7 @@ const Contact = () => {
               errors={errors}
               register={register}
               key={input.name}
+              type={input.type}
             />
           ))}
           <textarea placeholder="Your Message..." {...register("message")} />
