@@ -27,6 +27,6 @@ export async function POST(req: Request) {
         });
       }
     }
-    throw new Error(e);
+    return NextResponse.error();
   }
 }
