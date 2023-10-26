@@ -8,7 +8,7 @@ import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
@@ -23,6 +23,14 @@ const RegisterClient = () => {
   } = useForm<RegisterSchemaType>({
     resolver: zodResolver(registerSchema),
   });
+
+  useEffect(() => {
+    console.log("pmn");
+    axios
+      .post("/api/wishlist")
+      .then((response) => console.log(response))
+      .catch((response) => console.log(response, "oh no"));
+  }, []);
 
   const onSubmit: SubmitHandler<RegisterSchemaType> = (data) => {
     setIsLoading(true);
