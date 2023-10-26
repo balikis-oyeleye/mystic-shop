@@ -33,7 +33,10 @@ const RegisterClient = () => {
         toast.success("Successfully Registered");
         router.push("/login");
       })
-      .catch((error) => toast.error("Something went wrong"))
+      .catch((error) => {
+        toast.error("Something went wrong");
+        console.log(error.response);
+      })
       .finally(() => setIsLoading(false));
   };
 
