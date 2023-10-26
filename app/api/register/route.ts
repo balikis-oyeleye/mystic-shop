@@ -19,15 +19,14 @@ export async function POST(req: Request) {
     });
 
     return NextResponse.json(user);
-  } catch (e) {
+  } catch (e: any) {
     if (e instanceof Prisma.PrismaClientKnownRequestError) {
       if (e.code === "P2002") {
         return NextResponse.json({
-          message: "An account already existed with the email!",
+          message: "An account already existed with that email!",
         });
       }
-      return NextResponse.json(e);
     }
-    return NextResponse.json(e);
+    throw new Error(e);
   }
 }

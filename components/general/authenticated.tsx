@@ -7,7 +7,7 @@ import toast from "react-hot-toast";
 const Authenticated = ({ customer }: AuthenticatedType) => {
   const onLogOut = () => {
     signOut().then(() => {
-      toast.success("Successfully Logged out");
+      toast.success("Logged out");
     });
   };
 
