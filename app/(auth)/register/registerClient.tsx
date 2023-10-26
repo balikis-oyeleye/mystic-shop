@@ -34,7 +34,8 @@ const RegisterClient = () => {
           toast.error(error.data.message);
         } else {
           toast.success("Successfully Registered");
-          router.push("/login");
+          // router.push("/login");
+          console.log(error);
         }
       })
       .catch((error) => {
