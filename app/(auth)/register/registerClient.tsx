@@ -29,13 +29,13 @@ const RegisterClient = () => {
 
     axios
       .post("/api/register", data)
-      .then(() => {
+      .then((error) => {
         toast.success("Successfully Registered");
-        router.push("/login");
+        console.log(error);
       })
       .catch((error) => {
         toast.error("Something went wrong");
-        console.log(error.response);
+        console.log(error);
       })
       .finally(() => setIsLoading(false));
   };
