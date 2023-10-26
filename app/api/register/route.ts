@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcrypt";
 
-export async function POST(req: Response) {
+export async function POST(req: Request) {
   const body = await req.json();
 
   const { fullName, email, password } = body;
