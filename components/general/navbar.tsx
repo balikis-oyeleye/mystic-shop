@@ -9,7 +9,6 @@ import { PiShoppingBagThin } from "react-icons/pi";
 import { CiHeart } from "react-icons/ci";
 import Badge from "./badge";
 import { open, close } from "@/redux/features/sidebarSlice";
-import { open as openSm } from "@/redux/features/searchSlice";
 import { open as openCm } from "@/redux/features/cartModalSlice";
 import { navbar } from "@/constants/navigations";
 import { usePathname } from "next/navigation";
