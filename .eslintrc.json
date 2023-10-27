@@ -1,3 +1,3 @@
 {
-  "extends": ["next/core-web-vitals", "plugin:test-r/react", "plugin:jest-dom/recommended"]
+  "extends": ["next/core-web-vitals"]
 }
