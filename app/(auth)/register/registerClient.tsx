@@ -28,7 +28,7 @@ const RegisterClient = () => {
     setIsLoading(true);
 
     axios
-      .post("/api/register", data)
+      .post("/api/login", data)
       .then((error) => {
         if (error.data.message) {
           toast.error(error.data.message);
