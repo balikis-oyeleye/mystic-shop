@@ -34,13 +34,11 @@ const RegisterClient = () => {
           toast.error(error.data.message);
         } else {
           toast.success("Successfully Registered");
-          // router.push("/login");
-          console.log(error);
+          router.push("/login");
         }
       })
       .catch((error) => {
         toast.error("Something went wrong");
-        console.log(error);
       })
       .finally(() => setIsLoading(false));
   };

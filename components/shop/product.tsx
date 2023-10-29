@@ -1,7 +1,9 @@
 "use client";
 
+import axios from "axios";
 import Image from "next/image";
 import Link from "next/link";
+import toast from "react-hot-toast";
 
 interface ProductProps {
   product: {
@@ -18,7 +20,18 @@ interface ProductProps {
 }
 
 const Product = ({ product }: ProductProps) => {
-  const addToCart = () => console.log("add to cart");
+  const addToCart = () => {
+    axios
+      .post("/api/addToCart", product)
+      .then((error) => {
+        console.log(error);
+      })
+      .catch((error) => {
+        toast.error("Something went wrong");
+        console.log(error);
+      })
+      .finally(() => console.log("Done"));
+  };
 
   return (
     <div className="product">
