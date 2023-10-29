@@ -8,6 +8,30 @@
     @include breakpoint("sm") {
       height: 600px;
     }
+
+    img {
+      z-index: -1;
+    }
+    .hero-text {
+      @extend %flex-center;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.4);
+
+      span {
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1;
+        font-weight: 700;
+        color: $redwood;
+
+        @include breakpoint("md") {
+          font-size: 4rem;
+        }
+      }
+    }
   }
 
   section {
@@ -33,7 +57,7 @@
     }
 
     .see-more {
-      text-align: center;
+      @extend %flex-center;
       margin-top: 3.6rem;
     }
   }

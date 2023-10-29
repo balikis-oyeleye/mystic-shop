@@ -10,6 +10,11 @@ export default async function Home() {
     <main className="home">
       <div className="hero">
         <Image src={"/hero.jpg"} fill alt="hero" priority />
+        <div className="hero-text">
+          <span>
+            Explore <br /> Our Collections
+          </span>
+        </div>
       </div>
       <section>
         <h1>Our Products</h1>
