@@ -72,7 +72,7 @@
 
   &-cta {
     @extend %flex-center;
-    gap: 0.5rem;
+    gap: 0.3rem;
     font-family: $playfair;
     font-weight: 500;
 
@@ -81,7 +81,7 @@
       cursor: pointer;
 
       @include breakpoint("md") {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
       }
     }
 

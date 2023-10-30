@@ -7,7 +7,7 @@ $white: #fbfbff;
 $fade: rgba(0, 0, 0, 0.6);
 
 // fonts
-$playfair: "Playfair Display", serif;
+$playfair: var(--font-playfair), serif;
 
 // breakpoints
 $breakpoints: (

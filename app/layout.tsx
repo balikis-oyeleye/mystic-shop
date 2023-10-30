@@ -2,7 +2,7 @@ import Navbar from "@/components/general/navbar";
 import Sidebar from "@/components/general/sidebar";
 import "@/styles/base/reset.scss";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Playfair_Display } from "next/font/google";
 import { Providers } from "@/redux/provider";
 import Footer from "@/components/general/footer";
 import Cart from "@/components/shop/cart";
@@ -11,6 +11,11 @@ import { Toaster } from "react-hot-toast";
 import getCustomer from "@/actions/getCustomer";
 
 const inter = Inter({ subsets: ["latin"] });
+const playfair = Playfair_Display({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-playfair",
+});
 
 export const metadata: Metadata = {
   title: "Mystic Shop",
@@ -22,7 +27,7 @@ export default async function RootLayout({ children }: ChildrenTypes) {
 
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body className={`${inter.className} ${playfair.className}`}>
         <Providers>
           <Navbar customer={customer} />
           <Sidebar />

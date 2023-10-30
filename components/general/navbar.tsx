@@ -65,7 +65,6 @@ const Navbar = ({ customer }: AuthenticatedType) => {
               <Link href="/wishlist" onClick={() => dispatch(close())}>
                 <CiHeart />
               </Link>
-              <Badge text={99} />
             </div>
             <div className="cart">
               <PiShoppingBagThin
