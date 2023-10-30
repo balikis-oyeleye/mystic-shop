@@ -10,7 +10,11 @@ import ContactModal from "@/components/modal/contactModal";
 import { Toaster } from "react-hot-toast";
 import getCustomer from "@/actions/getCustomer";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
+
 const playfair = Playfair_Display({
   subsets: ["latin"],
   display: "swap",
@@ -27,7 +31,7 @@ export default async function RootLayout({ children }: ChildrenTypes) {
 
   return (
     <html lang="en">
-      <body className={`${inter.className} ${playfair.className}`}>
+      <body className={`${inter.className} ${playfair.variable}`}>
         <Providers>
           <Navbar customer={customer} />
           <Sidebar />
