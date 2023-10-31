@@ -8,14 +8,11 @@ export async function POST(request: Request) {
 
   const product = body;
 
-  const cart = await prisma.product.update({
-    where: { id: product.id },
+  const cart = await prisma.cart.create({
     data: {
-      Cart: {
-        create: {
-          customerId: customer?.id as string,
-        },
-      },
+      customerId: customer?.id as string,
+      product: product,
+      quantity: 1,
     },
   });
 

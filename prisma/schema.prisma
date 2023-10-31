@@ -37,7 +37,6 @@ model Product {
   sellerId    String
 
   Order Order[]
-  Cart  Cart[]
 }
 
 // Define the Order model
@@ -55,11 +54,8 @@ model Order {
 
 model Cart {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  product    Json
+  quantity   Int
   customerId String   @db.ObjectId
-  productId  String   @db.ObjectId
-  customer   Customer @relation(fields: [customerId], references: [id], onDelete: Cascade)
-  product    Product  @relation(fields: [productId], references: [id], onDelete: Cascade)
-
-  @@index([productId])
-  @@index([customerId])
+  Customer   Customer @relation(fields: [customerId], references: [id])
 }

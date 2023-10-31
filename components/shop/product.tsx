@@ -30,7 +30,7 @@ const Product = ({ product }: ProductProps) => {
         toast.error("Something went wrong");
         console.log(error);
       })
-      .finally(() => console.log("Done"));
+      .finally(() => console.log(""));
   };
 
   return (
@@ -48,13 +48,10 @@ const Product = ({ product }: ProductProps) => {
       <div className="product-price">
         <span>${product.price}</span>
       </div>
-      {true ? (
-        <button className="btn-secondary" onClick={addToCart}>
-          Add to Cart
-        </button>
-      ) : (
-        <button className="btn-secondary">Remove</button>
-      )}
+
+      <button className="btn-secondary" onClick={addToCart}>
+        Add to Cart
+      </button>
     </div>
   );
 };

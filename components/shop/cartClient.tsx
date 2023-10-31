@@ -7,8 +7,16 @@ import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { close } from "@/redux/features/cartModalSlice";
 import Link from "next/link";
 
-const CartClient = () => {
-  const arr = [1, 1, 1, 1, 1, 1];
+interface CartClientProps {
+  cart: {
+    id: string;
+    product: any;
+    customerId: string;
+    quantity: number;
+  }[];
+}
+
+const CartClient = ({ cart }: CartClientProps) => {
   const isOpen = useAppSelector((state) => state.cartModalReducer.isOpen);
   const dispatch = useAppDispatch();
 
@@ -24,12 +32,12 @@ const CartClient = () => {
     <aside className={`cart-modal ${isOpen ? "active-cm" : "inactive-cm"}`}>
       <div>
         <div className="head">
-          <p>Shopping Cart ({1}) </p>
+          <p>Shopping Cart ({cart.length}) </p>
           <BsX onClick={() => dispatch(close())} />
         </div>
         <div className="body">
-          {arr.map((item, index) => (
-            <CartItem key={index} />
+          {cart.map((item, index) => (
+            <CartItem key={index} product={item} />
           ))}
         </div>
         <Link href="/checkout" className="cta">

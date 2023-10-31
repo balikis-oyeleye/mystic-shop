@@ -7,7 +7,7 @@ const Cart = async () => {
   console.log(cart);
   return (
     <>
-      <CartClient />
+      <CartClient cart={cart} />
     </>
   );
 };

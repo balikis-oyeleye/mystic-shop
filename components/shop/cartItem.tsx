@@ -1,20 +1,31 @@
+import { Prisma } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
 import { BsDash, BsPlus } from "react-icons/bs";
 
-const CartItem = () => {
+interface CartItemProps {
+  product: {
+    id: string;
+    product: any;
+    customerId: string;
+    quantity: number;
+  };
+}
+
+const CartItem = ({ product }: CartItemProps) => {
+  console.log(product);
   return (
     <>
       <div className="items">
-        <Image src={"/pr.webp"} width={80} height={80} alt="p" />
+        <Image src={product.product.imageUrl} width={80} height={60} alt="p" />
         <div>
-          <p>Cool PR</p>
-          <span>$181</span>
+          <p>{product.product.name}</p>
+          <span>${product.product.price}</span>
           <div className="btn">
             <button>
               <BsDash />
             </button>
-            <span>5</span>
+            <span>{product.quantity}</span>
             <button>
               <BsPlus />
             </button>
