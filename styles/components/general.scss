@@ -15,3 +15,23 @@
     margin-top: 1rem;
   }
 }
+
+.loading-page {
+  @extend %flex-center;
+  flex-direction: column;
+  height: 60svh;
+}
+
+.error-page {
+  @extend %flex-center;
+  flex-direction: column;
+  height: 60svh;
+
+  h1 {
+    font-size: 6rem;
+
+    @include breakpoint("md") {
+      font-size: 10rem;
+    }
+  }
+}
