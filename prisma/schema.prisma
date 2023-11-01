@@ -57,7 +57,5 @@ model Cart {
   quantity   Int
   customerId String   @db.ObjectId
   productId  String   @unique @db.ObjectId
-  createdAt  DateTime @default(now())
-  updatedAt  DateTime @default(now())
   product    Product  @relation(fields: [productId], references: [id])
 }
