@@ -9,6 +9,7 @@ import Cart from "@/components/shop/cart";
 import ContactModal from "@/components/modal/contactModal";
 import { Toaster } from "react-hot-toast";
 import getCustomer from "@/actions/getCustomer";
+import { getCart } from "@/actions/getCart";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -28,12 +29,15 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({ children }: ChildrenTypes) {
   const customer = await getCustomer();
+  const cart = await getCart();
+
+  const sumTotal = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <html lang="en">
       <body className={`${inter.className} ${playfair.variable}`}>
         <Providers>
-          <Navbar customer={customer} />
+          <Navbar customer={customer} cart={sumTotal} />
           <Sidebar />
           <Cart />
           <ContactModal />

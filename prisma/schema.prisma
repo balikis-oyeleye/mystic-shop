@@ -22,7 +22,6 @@ model Customer {
   wishlistId String[] @db.ObjectId
 
   Order Order[]
-  Cart  Cart[]
 }
 
 model Product {
@@ -37,6 +36,7 @@ model Product {
   sellerId    String
 
   Order Order[]
+  Cart  Cart[]
 }
 
 // Define the Order model
@@ -54,8 +54,10 @@ model Order {
 
 model Cart {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  product    Json
   quantity   Int
   customerId String   @db.ObjectId
-  Customer   Customer @relation(fields: [customerId], references: [id])
+  productId  String   @unique @db.ObjectId
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @default(now())
+  product    Product  @relation(fields: [productId], references: [id])
 }

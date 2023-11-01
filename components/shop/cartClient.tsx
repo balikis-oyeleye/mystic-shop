@@ -10,9 +10,20 @@ import Link from "next/link";
 interface CartClientProps {
   cart: {
     id: string;
-    product: any;
-    customerId: string;
     quantity: number;
+    customerId: string;
+    productId: string;
+    product: {
+      id: string;
+      name: string;
+      category: string;
+      description: string;
+      price: number;
+      quantity: number;
+      status: string;
+      imageUrl: string;
+      sellerId: string;
+    };
   }[];
 }
 
@@ -28,16 +39,22 @@ const CartClient = ({ cart }: CartClientProps) => {
     }
   }, [isOpen]);
 
+  const sumTotal = cart.reduce((sum, item) => sum + item.quantity, 0);
+
   return (
     <aside className={`cart-modal ${isOpen ? "active-cm" : "inactive-cm"}`}>
       <div>
         <div className="head">
-          <p>Shopping Cart ({cart.length}) </p>
+          <p>Shopping Cart ({sumTotal}) </p>
           <BsX onClick={() => dispatch(close())} />
         </div>
         <div className="body">
           {cart.map((item, index) => (
-            <CartItem key={index} product={item} />
+            <CartItem
+              key={index}
+              product={item.product}
+              quantity={item.quantity}
+            />
           ))}
         </div>
         <Link href="/checkout" className="cta">

@@ -15,10 +15,6 @@
       width: 50%;
     }
 
-    @include breakpoint("lg") {
-      width: 25%;
-    }
-
     .head {
       @extend %flex-between;
       border-bottom: 1px solid rgba(0, 0, 0, 0.1);
@@ -71,7 +67,7 @@
       }
     }
     .body {
-      // overflow: auto;
+      overflow: auto;
       height: 100%;
     }
 

@@ -15,7 +15,11 @@ import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useWindowSize } from "@uidotdev/usehooks";
 
-const Navbar = ({ customer }: AuthenticatedType) => {
+interface CartProps extends AuthenticatedType {
+  cart: number;
+}
+
+const Navbar = ({ customer, cart }: CartProps) => {
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
@@ -73,7 +77,7 @@ const Navbar = ({ customer }: AuthenticatedType) => {
                   dispatch(openCm());
                 }}
               />
-              <Badge text={99} />
+              <Badge text={cart} />
             </div>
           </div>
         </div>

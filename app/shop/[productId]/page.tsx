@@ -1,4 +1,5 @@
 import { getProductById } from "@/actions/getProductById";
+import AddToCart from "@/components/button/addToCart";
 import Image from "next/image";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 import { BsDash, BsPlus } from "react-icons/bs";
@@ -51,18 +52,7 @@ const Product = async ({ params }: ProductProps) => {
                 )}
               </button>
             </div>
-            <button className="btn-main">
-              {!true ? (
-                <Image
-                  src={"/loader.gif"}
-                  width={30}
-                  height={30}
-                  alt="loader"
-                />
-              ) : (
-                <span>Add to Cart</span>
-              )}
-            </button>
+            <AddToCart product={product} className="btn-main" />
           </div>
         </div>
       ) : (
