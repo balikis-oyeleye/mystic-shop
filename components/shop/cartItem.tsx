@@ -24,34 +24,36 @@ const CartItem = ({ product, quantity }: CartItemProps) => {
   return (
     <>
       <div className="items">
-        <Image
-          src={product.imageUrl}
-          width={80}
-          height={60}
-          alt={product.name}
-        />
         <div>
-          <p>{product.name}</p>
-          <span>${product.price}</span>
-          <div className="btn">
-            <button disabled={isLoading}>
-              <BsDash onclick={() => {}} />
-            </button>
-            <span>
-              {isLoading ? (
-                <Image
-                  src="/loader2.gif"
-                  height={20}
-                  width={20}
-                  alt="loading"
-                />
-              ) : (
-                <>{quantity}</>
-              )}
-            </span>
-            <button disabled={isLoading}>
-              <BsPlus />
-            </button>
+          <Image
+            src={product.imageUrl}
+            width={80}
+            height={60}
+            alt={product.name}
+          />
+          <div>
+            <p>{product.name}</p>
+            <span>${product.price * quantity}</span>
+            <div className="btn">
+              <button disabled={isLoading}>
+                <BsDash onclick={() => {}} />
+              </button>
+              <span>
+                {isLoading ? (
+                  <Image
+                    src="/loader2.gif"
+                    height={20}
+                    width={20}
+                    alt="loading"
+                  />
+                ) : (
+                  <>{quantity}</>
+                )}
+              </span>
+              <button disabled={isLoading}>
+                <BsPlus onclick={() => {}} />
+              </button>
+            </div>
           </div>
         </div>
         <button className="btn-primary">Remove</button>
