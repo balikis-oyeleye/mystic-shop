@@ -38,6 +38,11 @@
       }
     }
 
+    .empty-cart {
+      @extend %flex-center;
+      height: 80%;
+    }
+
     .items {
       display: flex;
       margin: 1.2rem 0;

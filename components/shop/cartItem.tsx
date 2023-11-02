@@ -1,9 +1,13 @@
 import Image from "next/image";
+import Qty from "../button/qty";
 import { useState } from "react";
-import { BsDash, BsPlus } from "react-icons/bs";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
 
 interface CartItemProps {
   quantity: number;
+  id: string;
 
   product: {
     id: string;
@@ -18,8 +22,24 @@ interface CartItemProps {
   };
 }
 
-const CartItem = ({ product, quantity }: CartItemProps) => {
+const CartItem = ({ product, quantity, id }: CartItemProps) => {
   const [isLoading, setIsLoading] = useState(false);
+  const router = useRouter();
+
+  const removeFromCart = () => {
+    setIsLoading(true);
+
+    axios
+      .delete(`/api/cart/remove/${id}`)
+      .then(() => {
+        toast.success("Product removed from cart");
+        router.refresh();
+      })
+      .catch(() => {
+        toast.error("Something went Wrong");
+      })
+      .finally(() => setIsLoading(false));
+  };
 
   return (
     <>
@@ -35,28 +55,17 @@ const CartItem = ({ product, quantity }: CartItemProps) => {
             <p>{product.name}</p>
             <span>${product.price * quantity}</span>
             <div className="btn">
-              <button disabled={isLoading}>
-                <BsDash onclick={() => {}} />
-              </button>
-              <span>
-                {isLoading ? (
-                  <Image
-                    src="/loader2.gif"
-                    height={20}
-                    width={20}
-                    alt="loading"
-                  />
-                ) : (
-                  <>{quantity}</>
-                )}
-              </span>
-              <button disabled={isLoading}>
-                <BsPlus onclick={() => {}} />
-              </button>
+              <Qty qty={quantity} product={product} />
             </div>
           </div>
         </div>
-        <button className="btn-primary">Remove</button>
+        <button
+          disabled={isLoading}
+          className="btn-primary"
+          onClick={removeFromCart}
+        >
+          Remove
+        </button>
       </div>
     </>
   );

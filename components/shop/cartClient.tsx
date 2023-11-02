@@ -48,18 +48,27 @@ const CartClient = ({ cart }: CartClientProps) => {
           <p>Shopping Cart ({sumTotal}) </p>
           <BsX onClick={() => dispatch(close())} />
         </div>
-        <div className="body">
-          {cart.map((item, index) => (
-            <CartItem
-              key={index}
-              product={item.product}
-              quantity={item.quantity}
-            />
-          ))}
-        </div>
-        <Link href="/checkout" className="cta">
-          <button className="btn-main">Check Out</button>
-        </Link>
+        {cart.length < 1 ? (
+          <div className="empty-cart">
+            <p>No Product In cart</p>
+          </div>
+        ) : (
+          <>
+            <div className="body">
+              {cart.map((item, index) => (
+                <CartItem
+                  key={index}
+                  product={item.product}
+                  quantity={item.quantity}
+                  id={item.id}
+                />
+              ))}
+            </div>
+            <Link href="/checkout" className="cta">
+              <button className="btn-main">Check Out</button>
+            </Link>
+          </>
+        )}
       </div>
     </aside>
   );

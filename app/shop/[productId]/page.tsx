@@ -1,8 +1,9 @@
+import { getCart } from "@/actions/getCart";
 import { getProductById } from "@/actions/getProductById";
 import AddToCart from "@/components/button/addToCart";
+import Qty from "@/components/button/qty";
 import Image from "next/image";
 import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
-import { BsDash, BsPlus } from "react-icons/bs";
 
 interface ProductProps {
   params: {
@@ -12,6 +13,8 @@ interface ProductProps {
 
 const Product = async ({ params }: ProductProps) => {
   const product = (await getProductById(params.productId)) as ProductType;
+  const cart = await getCart();
+  const cartQty = cart.find((item) => item.productId === product.id);
 
   return (
     <main className="product-id">
@@ -31,13 +34,7 @@ const Product = async ({ params }: ProductProps) => {
             </p>
             <div className="product-item__info-cta">
               <div className="product-item__info-qty">
-                <button>
-                  <BsDash />
-                </button>
-                <span>{1}</span>
-                <button>
-                  <BsPlus />
-                </button>
+                <Qty qty={cartQty?.quantity || 1} product={product} />
               </div>
               <button className="product-item__info-wishlist">
                 {!true ? (

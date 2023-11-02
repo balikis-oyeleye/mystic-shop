@@ -293,3 +293,7 @@ input[type="range"]::-moz-range-thumb {
 .error {
   color: red;
 }
+
+button:disabled {
+  cursor: not-allowed;
+}
