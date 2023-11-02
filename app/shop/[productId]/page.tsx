@@ -1,9 +1,10 @@
 import { getCart } from "@/actions/getCart";
+import getCustomer from "@/actions/getCustomer";
 import { getProductById } from "@/actions/getProductById";
 import AddToCart from "@/components/button/addToCart";
 import Qty from "@/components/button/qty";
+import WishlistBtn from "@/components/button/wishlist";
 import Image from "next/image";
-import { AiFillHeart, AiOutlineHeart } from "react-icons/ai";
 
 interface ProductProps {
   params: {
@@ -15,6 +16,9 @@ const Product = async ({ params }: ProductProps) => {
   const product = (await getProductById(params.productId)) as ProductType;
   const cart = await getCart();
   const cartQty = cart.find((item) => item.productId === product.id);
+  const customer = await getCustomer();
+
+  const isWishlist = customer?.wishlistId.some((item) => item === product.id);
 
   return (
     <main className="product-id">
@@ -36,18 +40,8 @@ const Product = async ({ params }: ProductProps) => {
               <div className="product-item__info-qty">
                 <Qty qty={cartQty?.quantity || 1} product={product} />
               </div>
-              <button className="product-item__info-wishlist">
-                {!true ? (
-                  <Image
-                    src={"/loader2.gif"}
-                    width={30}
-                    height={30}
-                    alt="loader"
-                  />
-                ) : (
-                  <>{true ? <AiFillHeart /> : <AiOutlineHeart />}</>
-                )}
-              </button>
+
+              <WishlistBtn id={product.id} isWishlist={isWishlist || false} />
             </div>
             <AddToCart product={product} className="btn-main" />
           </div>

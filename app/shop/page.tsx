@@ -10,15 +10,15 @@ const Shop = async ({ searchParams }: any) => {
     <main className="shop">
       <h1>Shop</h1>
       <section>
+        <div className="filter">
+          <span>Filter by:</span>
+          <div>
+            <Select name="category" options={categories} />
+            <Select name="price" options={price} />
+          </div>
+        </div>
         {products.length !== 0 ? (
           <>
-            <div className="filter">
-              <span>Filter by:</span>
-              <div>
-                <Select name="category" options={categories} />
-                <Select name="price" options={price} />
-              </div>
-            </div>
             <Products products={products} />
           </>
         ) : (
