@@ -13,8 +13,8 @@ const Shop = async ({ searchParams }: any) => {
         <div className="filter">
           <span>Filter by:</span>
           <div>
-            <Select name="category" options={categories} />
-            <Select name="price" options={price} />
+            <Select page="shop" name="category" options={categories} />
+            <Select name="price" options={price} page="shop" />
           </div>
         </div>
         {products.length !== 0 ? (

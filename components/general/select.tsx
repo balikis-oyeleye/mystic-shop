@@ -6,13 +6,14 @@ import { BsChevronDown } from "react-icons/bs";
 
 interface SelectProps {
   name: string;
+  page: string;
   options: {
     label: string;
     value: string;
   }[];
 }
 
-const Select = ({ name, options }: SelectProps) => {
+const Select = ({ name, options, page }: SelectProps) => {
   const [dropdown, setOpenDropdown] = useState(false);
   const params = useSearchParams();
   const router = useRouter();
@@ -40,7 +41,7 @@ const Select = ({ name, options }: SelectProps) => {
 
       const url = queryString.stringifyUrl(
         {
-          url: "/shop",
+          url: `/${page}`,
           query: updatedQuery,
         },
         { skipNull: true }

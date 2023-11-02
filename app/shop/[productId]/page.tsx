@@ -25,7 +25,13 @@ const Product = async ({ params }: ProductProps) => {
       {product ? (
         <div className="product-item">
           <div className="product-item__img">
-            <Image src={product.imageUrl} alt={product.name} fill />
+            <Image
+              src={product.imageUrl}
+              alt={product.name}
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
+            />
           </div>
           <div className="product-item__info">
             <span className="product-item__info-category">

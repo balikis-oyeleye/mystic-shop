@@ -3,8 +3,8 @@ import Select from "@/components/general/select";
 import Products from "@/components/shop/products";
 import { categories, price } from "@/constants/random";
 
-const Wishlist = async () => {
-  const products = await getWishlist();
+const Wishlist = async ({ searchParams }: any) => {
+  const products = await getWishlist(searchParams.category, searchParams.price);
 
   return (
     <main className="wishlist">
@@ -13,8 +13,8 @@ const Wishlist = async () => {
         <div className="filter">
           <span>Filter by:</span>
           <div>
-            <Select name="category" options={categories} />
-            <Select name="price" options={price} />
+            <Select page="wishlist" name="category" options={categories} />
+            <Select page="wishlist" name="price" options={price} />
           </div>
         </div>
         {products.length !== 0 ? (
