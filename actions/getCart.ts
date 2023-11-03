@@ -6,7 +6,11 @@ export const getCart = async () => {
 
   try {
     const cart = await prisma.cart.findMany({
-      where: { customerId: customer?.id },
+      where: {
+        customerId: {
+          equals: customer?.id,
+        },
+      },
       include: {
         product: true,
       },
