@@ -4,6 +4,10 @@ import getCustomer from "./getCustomer";
 export const getCart = async () => {
   const customer = await getCustomer();
 
+  if (!customer) {
+    return [];
+  }
+
   try {
     const cart = await prisma.cart.findMany({
       where: {
