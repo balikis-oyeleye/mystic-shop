@@ -20,12 +20,14 @@ const AddToCart = ({
     setIsLoading(true);
     axios
       .post("/api/cart/add", product)
-      .then(() => {
+      .then((error) => {
         route.refresh();
         toast.success("Product added to cart");
+        console.log(error);
       })
       .catch((error) => {
         toast.error("Something went wrong");
+        console.log(error);
       })
       .finally(() => setIsLoading(false));
   };

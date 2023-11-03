@@ -4,7 +4,6 @@ import { getProductById } from "@/actions/getProductById";
 import AddToCart from "@/components/button/addToCart";
 import Qty from "@/components/button/qty";
 import WishlistBtn from "@/components/button/wishlist";
-import { siteMetadata } from "@/utils/metadata";
 import Image from "next/image";
 
 export async function generateMetadata({ params }: any) {
@@ -17,21 +16,6 @@ export async function generateMetadata({ params }: any) {
   return {
     title: product.name,
     description: product.description,
-    openGraph: {
-      title: product.name,
-      description: product.description,
-      url: siteMetadata.siteUrl + product.id,
-      siteName: siteMetadata.title,
-      locale: "en_US",
-      type: "article",
-      images: [product.imageUrl],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title: product.name,
-      description: product.description,
-      images: [product.imageUrl],
-    },
   };
 }
 

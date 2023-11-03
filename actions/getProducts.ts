@@ -21,7 +21,11 @@ export const getProducts = async (category?: string, price?: string) => {
       filter.orderBy.price = price;
     }
 
-    const products = await prisma.product.findMany(filter);
+    const products = await prisma.product.findMany({
+      ...filter,
+      // skip: 0,
+      // take: 10,
+    });
 
     return products;
   } catch (error: any) {

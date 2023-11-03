@@ -14,16 +14,28 @@ import { navbar } from "@/constants/navigations";
 import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import { useWindowSize } from "@uidotdev/usehooks";
+import { useCookies } from "react-cookie";
+import generateUniqueId from "generate-unique-id";
+import { getCookie } from "@/utils/getCookie";
 
 interface CartProps extends AuthenticatedType {
   cart: number;
 }
 
 const Navbar = ({ customer, cart }: CartProps) => {
+  const [cookies, setCookie] = useCookies(["ms-id"]);
+  const id = generateUniqueId({ useLetters: false, length: 24 });
   const isOpen = useAppSelector((state) => state.sidebarReducer.isOpen);
   const dispatch = useAppDispatch();
   const pathname = usePathname();
   const size = useWindowSize();
+
+  useEffect(() => {
+    if (getCookie()) return;
+    else {
+      setCookie("ms-id", id, { domain: "", path: "/" });
+    }
+  }, []);
 
   useEffect(() => {
     if (size.width! > 769) {
