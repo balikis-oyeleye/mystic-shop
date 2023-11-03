@@ -1,5 +1,10 @@
 import Image from "next/image";
 
+export const metadata = {
+  title: "About",
+  description: `Here are some details about mystic shop.`,
+};
+
 const About = () => {
   return (
     <main className="about">

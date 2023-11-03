@@ -3,6 +3,11 @@ import Select from "@/components/general/select";
 import Products from "@/components/shop/products";
 import { categories, price } from "@/constants/random";
 
+export const metadata = {
+  title: "Wishlist",
+  description: `Wishlist`,
+};
+
 const Wishlist = async ({ searchParams }: any) => {
   const products = await getWishlist(searchParams.category, searchParams.price);
 

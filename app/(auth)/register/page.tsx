@@ -2,6 +2,11 @@ import getCustomer from "@/actions/getCustomer";
 import RegisterClient from "./registerClient";
 import Authenticated from "@/components/general/authenticated";
 
+export const metadata = {
+  title: "Register",
+  description: `Register`,
+};
+
 const Register = async () => {
   const customer = await getCustomer();
 
