@@ -40,9 +40,11 @@ model Product {
 }
 
 // Define the Order model
+
 model Order {
   id          String    @id @default(auto()) @map("_id") @db.ObjectId
-  orderDate   DateTime
+  orderDate   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
   totalAmount Float
   address     String
   sellerId    String
@@ -53,9 +55,9 @@ model Order {
 }
 
 model Cart {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  id         String  @id @default(auto()) @map("_id") @db.ObjectId
   quantity   Int
-  customerId String   @db.ObjectId
-  productId  String   @unique @db.ObjectId
-  product    Product  @relation(fields: [productId], references: [id])
+  customerId String  @db.ObjectId
+  productId  String  @db.ObjectId
+  product    Product @relation(fields: [productId], references: [id])
 }

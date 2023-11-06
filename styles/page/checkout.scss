@@ -1,0 +1,18 @@
+.checkout-page {
+  @extend %container;
+  padding: 1.6rem;
+
+  @include breakpoint("md") {
+    padding: 1.6rem 3.2rem;
+  }
+
+  h1 {
+    @extend %heading;
+  }
+  section {
+    @extend %flex-between;
+
+    .checkout-client {
+    }
+  }
+}

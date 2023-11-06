@@ -5,7 +5,7 @@ import { BsX } from "react-icons/bs";
 import CartItem from "./cartItem";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
 import { close } from "@/redux/features/cartModalSlice";
-import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface CartClientProps {
   cart: {
@@ -25,11 +25,13 @@ interface CartClientProps {
       sellerId: string;
     };
   }[];
+  customer: string | undefined;
 }
 
-const CartClient = ({ cart }: CartClientProps) => {
+const CartClient = ({ cart, customer }: CartClientProps) => {
   const isOpen = useAppSelector((state) => state.cartModalReducer.isOpen);
   const dispatch = useAppDispatch();
+  const router = useRouter();
 
   useEffect(() => {
     if (isOpen === true) {
@@ -40,6 +42,11 @@ const CartClient = ({ cart }: CartClientProps) => {
   }, [isOpen]);
 
   const sumTotal = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  const checkout = () => {
+    if (!customer) return router.push("/login");
+    else return router.push("/checkout");
+  };
 
   return (
     <aside className={`cart-modal ${isOpen ? "active-cm" : "inactive-cm"}`}>
@@ -64,9 +71,9 @@ const CartClient = ({ cart }: CartClientProps) => {
                 />
               ))}
             </div>
-            <Link href="/checkout" className="cta">
-              <button className="btn-main">Check Out</button>
-            </Link>
+            <button className="btn-main" onClick={checkout}>
+              Check out
+            </button>
           </>
         )}
       </div>

@@ -1,9 +1,6 @@
 import Image from "next/image";
 import Qty from "../button/qty";
-import { useState } from "react";
-import axios from "axios";
-import toast from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import RemoveFromCart from "../button/removeFromCart";
 
 interface CartItemProps {
   quantity: number;
@@ -23,24 +20,6 @@ interface CartItemProps {
 }
 
 const CartItem = ({ product, quantity, id }: CartItemProps) => {
-  const [isLoading, setIsLoading] = useState(false);
-  const router = useRouter();
-
-  const removeFromCart = () => {
-    setIsLoading(true);
-
-    axios
-      .delete(`/api/cart/remove/${id}`)
-      .then(() => {
-        toast.success("Product removed from cart");
-        router.refresh();
-      })
-      .catch(() => {
-        toast.error("Something went Wrong");
-      })
-      .finally(() => setIsLoading(false));
-  };
-
   return (
     <>
       <div className="items">
@@ -59,13 +38,7 @@ const CartItem = ({ product, quantity, id }: CartItemProps) => {
             </div>
           </div>
         </div>
-        <button
-          disabled={isLoading}
-          className="btn-primary"
-          onClick={removeFromCart}
-        >
-          Remove
-        </button>
+        <RemoveFromCart id={id} />
       </div>
     </>
   );
