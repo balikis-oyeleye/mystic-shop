@@ -21,7 +21,7 @@ export const getCart = async () => {
       });
 
       return cart;
-    } else {
+    } else if (customer) {
       const cart = await prisma.cart.findMany({
         where: {
           customerId: {
@@ -34,7 +34,7 @@ export const getCart = async () => {
       });
 
       return cart;
-    }
+    } else return [];
   } catch (error: any) {
     throw new Error(error);
   }
