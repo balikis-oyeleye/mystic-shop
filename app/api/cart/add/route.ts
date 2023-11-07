@@ -25,6 +25,7 @@ export async function POST(request: Request) {
         value: idGenerate,
         httpOnly: true,
         path: "/",
+        expires: Date.UTC(2024, 4, 5),
       });
     }
     id = cookieStore.get("ms-id")?.value;

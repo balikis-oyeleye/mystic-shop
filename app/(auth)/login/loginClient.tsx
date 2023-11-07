@@ -11,6 +11,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const LoginClient = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -30,12 +31,18 @@ const LoginClient = () => {
       ...data,
       redirect: false,
     }).then((callback) => {
-      setIsLoading(false);
-
-      if (callback?.ok) {
-        router.refresh();
-        toast.success("Successfully Logged In");
-      }
+      axios
+        .post("/api/login")
+        .then((error) => {
+          router.refresh();
+          toast.success("Successfully Logged In");
+          console.log(error);
+        })
+        .catch((error) => {
+          toast.error("Something went wrong");
+          return;
+        })
+        .finally(() => setIsLoading(false));
 
       if (callback?.error) {
         toast.success(callback?.error);

@@ -27,7 +27,6 @@ const Qty = ({ qty, product }: QtyProps) => {
       })
       .catch((error) => {
         toast.error("Add Product to Cart First");
-        console.log(error);
       })
       .finally(() => setIsLoading(false));
   };
@@ -45,7 +44,6 @@ const Qty = ({ qty, product }: QtyProps) => {
       })
       .catch((error) => {
         toast.error("Error");
-        console.log(error);
       })
       .finally(() => setIsLoading(false));
   };

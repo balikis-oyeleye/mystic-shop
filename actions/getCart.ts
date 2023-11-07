@@ -8,13 +8,11 @@ export const getCart = async () => {
   const customer = await getCustomer();
 
   try {
-    if (!id) {
-      return [];
-    } else if (!customer) {
+    if (customer) {
       const cart = await prisma.cart.findMany({
         where: {
           customerId: {
-            equals: id,
+            equals: customer?.id,
           },
         },
         include: {
@@ -23,11 +21,12 @@ export const getCart = async () => {
       });
 
       return cart;
-    } else {
+    } else if (!id) return [];
+    else {
       const cart = await prisma.cart.findMany({
         where: {
           customerId: {
-            equals: customer?.id,
+            equals: id,
           },
         },
         include: {
