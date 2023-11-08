@@ -36,7 +36,6 @@ const LoginClient = () => {
         .then((error) => {
           router.refresh();
           toast.success("Successfully Logged In");
-          console.log(error);
         })
         .catch((error) => {
           toast.error("Something went wrong");

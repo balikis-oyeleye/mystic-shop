@@ -25,3 +25,21 @@ type AuthenticatedType = {
     wishlistId: string[];
   } | null;
 };
+
+type CartType = {
+  product: {
+    id: string;
+    name: string;
+    category: string;
+    description: string;
+    price: number;
+    quantity: number;
+    status: string;
+    imageUrl: string;
+    sellerId: string;
+  };
+  id: string;
+  quantity: number;
+  customerId: string;
+  productId: string;
+};

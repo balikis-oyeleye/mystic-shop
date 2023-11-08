@@ -44,6 +44,7 @@ const CartClient = ({ cart, customer }: CartClientProps) => {
   const sumTotal = cart.reduce((sum, item) => sum + item.quantity, 0);
 
   const checkout = () => {
+    dispatch(close());
     if (!customer) return router.push("/login");
     else return router.push("/checkout");
   };

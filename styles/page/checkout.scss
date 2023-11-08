@@ -10,9 +10,91 @@
     @extend %heading;
   }
   section {
-    @extend %flex-between;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 4rem;
+
+    @include breakpoint("sm") {
+      grid-template-columns: 1.8fr 1fr;
+    }
 
     .checkout-client {
+      .body {
+        display: flex;
+        flex-direction: column;
+        gap: 1.2rem;
+
+        > div {
+          display: flex;
+          justify-content: flex-start;
+          padding-bottom: 1rem;
+          border-bottom: 1px solid #e8e8e8;
+          gap: 1.2rem;
+          width: 100%;
+
+          .name-remove {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 0.4rem;
+          }
+
+          .price-qty {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            row-gap: 0.4rem;
+            margin-left: auto;
+
+            span {
+              margin-left: auto;
+            }
+
+            .btn {
+              width: 100%;
+              display: flex;
+              align-items: center;
+              justify-content: space-between;
+              gap: 1rem;
+              border: 1px solid $black;
+              padding: 0.4rem 0.6rem;
+            }
+          }
+        }
+      }
+    }
+
+    .order-summary {
+      align-self: flex-start;
+      background-color: #fff;
+      padding: 1rem;
+
+      h4 {
+        padding-bottom: 1.2rem;
+      }
+
+      > div {
+        @extend %flex-between;
+        margin: 1rem 0;
+      }
+      button {
+        width: 100%;
+      }
+    }
+  }
+
+  .no-cart__product {
+    @extend %flex-center;
+    height: 42svh;
+
+    p {
+      font-family: $playfair;
+      font-weight: 600;
+      font-size: 1.2rem;
+
+      @include breakpoint("md") {
+        font-size: 3rem;
+      }
     }
   }
 }
