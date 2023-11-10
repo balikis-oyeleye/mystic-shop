@@ -43,9 +43,11 @@ model Order {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   orderDate   DateTime @default(now())
   updatedAt   DateTime @updatedAt
+  isPaid      Boolean
   totalAmount Float
   address     String
   sellerId    String
+  custormerId String?  @db.ObjectId
   productId   String?  @db.ObjectId
   Product     Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
 }

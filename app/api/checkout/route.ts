@@ -37,6 +37,9 @@ export async function POST(request: Request) {
       address: "address",
       sellerId: prod.product.sellerId,
       totalAmount: prod.quantity * prod.product.price,
+      productId: prod.product.id,
+      custormerId: customer?.id,
+      isPaid: false,
     };
   });
 
@@ -52,8 +55,8 @@ export async function POST(request: Request) {
     phone_number_collection: {
       enabled: true,
     },
-    success_url: `${process.env.FRONTEND_STORE_URL}/shop?success=1`,
-    cancel_url: `${process.env.FRONTEND_STORE_URL}/shop?canceled=1`,
+    success_url: `${process.env.FRONTEND_STORE_URL}/checkout?payment=success`,
+    cancel_url: `${process.env.FRONTEND_STORE_URL}/checkout?payment=cancelled`,
     metadata: {
       customer: customer.id,
     },

@@ -2,6 +2,9 @@
 import Image from "next/image";
 import RemoveFromCart from "./button/removeFromCart";
 import Qty from "./button/qty";
+import { useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+import toast from "react-hot-toast";
 
 interface CartClientProps {
   cart: {
@@ -24,6 +27,16 @@ interface CartClientProps {
 }
 
 const CheckoutClient = ({ cart }: CartClientProps) => {
+  const param = useSearchParams();
+
+  useEffect(() => {
+    const isPaid = param.get("payment");
+
+    if (isPaid === "cancelled") {
+      toast.error("Checkout Failed");
+    }
+  }, []);
+
   return (
     <div className="checkout-client">
       <div className="body">

@@ -3,10 +3,8 @@ import { headers } from "next/headers";
 import { NextResponse } from "next/server";
 import { stripe } from "@/lib/stripe";
 import prisma from "@/lib/prismadb";
-import { getCart } from "@/actions/getCart";
 
 export async function POST(req: Request) {
-  const cart = await getCart();
   const body = await req.text();
   const signature = headers().get("Stripe-Signature") as string;
 
@@ -45,6 +43,7 @@ export async function POST(req: Request) {
       },
       data: {
         address: addressString,
+        isPaid: true,
       },
     });
 
