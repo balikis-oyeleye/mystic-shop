@@ -1,9 +1,6 @@
 <a name="readme-top"></a>
 
 <p align="center">
-  <a href="https://tempest-foods.vercel.app/">
-    <img alt="logo" src="public/tempest.png" width="200" height ="100" />
-  </a>
   <h1 align="center">
     Mystic Shop 
   </h1>
