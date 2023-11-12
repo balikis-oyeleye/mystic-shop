@@ -14,7 +14,7 @@ An online decor marketplace where users can discover and purchase a wide range o
 
 ### Preview
 
-![preview](public/preview.png)
+![preview](public/site-img.jpg)
 
 ### Built With
 
