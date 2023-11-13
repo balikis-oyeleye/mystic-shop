@@ -11,7 +11,6 @@ interface ProductProps {
     category: string;
     description: string;
     price: number;
-    quantity: number;
     status: string;
     imageUrl: string;
     sellerId: string;
