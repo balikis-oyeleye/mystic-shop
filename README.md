@@ -1,9 +1,6 @@
 <a name="readme-top"></a>
 
 <p align="center">
-  <a href="https://tempest-foods.vercel.app/">
-    <img alt="logo" src="public/tempest.png" width="200" height ="100" />
-  </a>
   <h1 align="center">
     Mystic Shop 
   </h1>
@@ -11,13 +8,13 @@
 
 ## Description
 
-Tempest Foods is a lightning-fast food delivery app that brings a diverse selection of mouthwatering dishes from top-rated restaurants straight to your doorstep. 
+An online decor marketplace where users can discover and purchase a wide range of home decor items. The platform also empowers sellers to showcase and sell their unique products, fostering a diverse community of decor enthusiasts and creators.
 
 ## About The Project
 
 ### Preview
 
-![preview](public/preview.png)
+![preview](public/site-img.jpg)
 
 ### Built With
 
