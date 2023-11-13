@@ -31,20 +31,26 @@ const LoginClient = () => {
       ...data,
       redirect: false,
     }).then((callback) => {
-      axios
-        .post("/api/login")
-        .then((error) => {
-          router.refresh();
-          toast.success("Successfully Logged In");
-        })
-        .catch((error) => {
-          toast.error("Something went wrong");
-          return;
-        })
-        .finally(() => setIsLoading(false));
+      // axios call
+      if (callback?.ok) {
+        axios
+          .post("/api/login")
+          .then((error) => {
+            router.refresh();
+            toast.success("Successfully Logged In");
+          })
+          .catch((error) => {
+            toast.error("Something went wrong");
+            return;
+          })
+          .finally(() => setIsLoading(false));
+      }
+
+      router.refresh();
 
       if (callback?.error) {
         toast.success(callback?.error);
+        setIsLoading(false);
       }
     });
   };
