@@ -1,10 +1,12 @@
 "use client";
+
 import Image from "next/image";
 import RemoveFromCart from "./button/removeFromCart";
 import Qty from "./button/qty";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 interface CartClientProps {
   cart: {
@@ -33,7 +35,11 @@ const CheckoutClient = ({ cart }: CartClientProps) => {
     const isPaid = param.get("payment");
 
     if (isPaid === "cancelled") {
-      toast.error("Checkout Failed");
+      axios
+        .delete("/api/order")
+        .then(() => toast.error("Checkout Failed"))
+        .catch(() => toast.error("Something went wrong"))
+        .finally(() => {});
     }
   }, []);
 
