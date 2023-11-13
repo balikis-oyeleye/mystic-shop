@@ -10,7 +10,7 @@ export async function POST(request: Request, { params }: Params) {
   const customer = await getCustomer();
 
   if (!customer) {
-    return NextResponse.error();
+    return new NextResponse("login", { status: 400 });
   }
 
   const { productId } = params;
@@ -39,7 +39,7 @@ export async function DELETE(request: Request, { params }: Params) {
   const customer = await getCustomer();
 
   if (!customer) {
-    return NextResponse.error();
+    return new NextResponse("login", { status: 400 });
   }
 
   const { productId } = params;

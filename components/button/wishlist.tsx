@@ -26,6 +26,7 @@ const WishlistBtn = ({ id, isWishlist }: WishlistBtnProps) => {
         router.refresh();
       })
       .catch((error) => {
+        if (error.response.data === "login") return router.push("/login");
         toast.error("Something went wrong");
       })
       .finally(() => {
