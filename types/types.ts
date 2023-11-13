@@ -8,7 +8,6 @@ type ProductType = {
   category: string;
   description: string;
   price: number;
-  quantity: number;
   status: string;
   imageUrl: string;
   sellerId: string;
@@ -33,7 +32,6 @@ type CartType = {
     category: string;
     description: string;
     price: number;
-    quantity: number;
     status: string;
     imageUrl: string;
     sellerId: string;

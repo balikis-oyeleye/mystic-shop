@@ -28,7 +28,6 @@ model Product {
   category    String
   description String
   price       Float
-  quantity    Int
   status      String
   imageUrl    String
   sellerId    String
