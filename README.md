@@ -1,5 +1,3 @@
-<p id="readme-top"></p>
-
 <p align="center">
   <h1 align="center">
     Mystic Shop 
