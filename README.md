@@ -9,6 +9,7 @@
 ## Description
 
 An online decor marketplace where users can discover and purchase a wide range of home decor items. The platform also empowers sellers to showcase and sell their unique products, fostering a diverse community of decor enthusiasts and creators.
+[Project Link](https://mystic-shop.vercel.app/)
 
 ## About The Project
 
