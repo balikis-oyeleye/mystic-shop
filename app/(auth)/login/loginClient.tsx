@@ -44,9 +44,9 @@ const LoginClient = () => {
             return;
           })
           .finally(() => setIsLoading(false));
-      }
 
-      router.refresh();
+        router.refresh();
+      }
 
       if (callback?.error) {
         toast.success(callback?.error);
